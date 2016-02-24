@@ -1,21 +1,11 @@
 # -*- coding: UTF-8 -*-
 
 import MySQLdb
+from connection_factory import Connection_factory
 
-connection=MySQLdb.connect(
-	host='localhost',
-	user='root',
-	pass='',
-	db='gppex')
-
+connection = Connection_factory().get_connection()
 cursor = connection.cursor()
-
 cursor.execute('select * from empresa')
-
 for linha in cursor:
 	print linha
-
 connection.close()
-
-
-## CONTINUAR DOS 3 MINUTOS DO VÍDEO 1
